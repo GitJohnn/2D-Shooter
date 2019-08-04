@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour
 {
     public GameObject enemy;
+    //GameManager is GM
+    bool GM;
 
     public float maxY;
     public float maxX;
@@ -14,13 +16,16 @@ public class SpawnEnemies : MonoBehaviour
 
     private void Awake()
     {
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().game;
         spawnRate = startSpawnRate;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(spawnRate <= 0)
+        //Update the bool variable
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().game;
+        if (spawnRate <= 0 && GM)
         {
             SpawnEnemiesLocation();
             spawnRate = startSpawnRate;

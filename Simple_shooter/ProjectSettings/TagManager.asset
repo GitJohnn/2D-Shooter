@@ -8,6 +8,8 @@ TagManager:
   - Health
   - Score
   - UIManager
+  - GameManager
+  - HighScore
   layers:
   - Default
   - TransparentFX

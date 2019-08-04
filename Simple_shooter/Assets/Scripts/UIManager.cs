@@ -9,8 +9,8 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI ScoreText;
     private Image healthBar;
     private TextMeshProUGUI healthValue;
-    private float health = 100f;
-    private float scoreValue = 0;
+    public float health = 100f;
+    public float scoreValue = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +31,11 @@ public class UIManager : MonoBehaviour
     public void TakeHealth(float damage)
     {
         health -= damage;
+
+        if(health < 0)
+        {
+            health = 0;
+        }
     }
 
     public void AddScore(float points)
