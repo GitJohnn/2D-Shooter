@@ -34,6 +34,22 @@ public class SpawnEnemies : MonoBehaviour
         {
             spawnRate -= Time.deltaTime;
         }
+
+        if (!GM)
+        {
+            DestroyEnemies();
+        }
+
+    }
+
+    void DestroyEnemies()
+    {
+        GameObject[] destroyEnemy = GameObject.FindGameObjectsWithTag("Enemy");
+        
+        for(int i = 0; i < destroyEnemy.Length; i++)
+        {
+            Destroy(destroyEnemy[i]);
+        }
     }
 
     void SpawnEnemiesLocation()

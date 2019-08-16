@@ -16,6 +16,7 @@ public class EnemyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //UIManager
         UIM = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -36,6 +37,7 @@ public class EnemyMove : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            //UIManager
             UIM.TakeHealth(damage);
         }
     }

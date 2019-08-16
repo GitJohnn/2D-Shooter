@@ -7,12 +7,14 @@ public class Movement : MonoBehaviour
     private Rigidbody2D myrigidbody;
     private Vector2 moveVelocity;
     public float speed;
+    private GameObject player;
     //GameManager is GM
     bool GM;
 
     // Start is called before the first frame update
     void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().game;
         myrigidbody = GetComponent<Rigidbody2D>();    
     }
@@ -28,7 +30,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            speed = 0;
+            Destroy(player);
         }
     }
 
@@ -43,7 +45,6 @@ public class Movement : MonoBehaviour
             myrigidbody.MovePosition(Vector2.zero);
         }
     }
-
 
     void GetInput()
     {

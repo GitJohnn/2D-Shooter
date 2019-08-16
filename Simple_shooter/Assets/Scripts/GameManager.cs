@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     public GameObject GameOver;
     public GameObject HighScore;
     private TextMeshProUGUI HighScoreText;
+    public Button restartBtn;
+    public Button quitBtn;
     public float score;
     public float health;
 
@@ -21,6 +24,11 @@ public class GameManager : MonoBehaviour
         HighScore.SetActive(false);
         HighScoreText = HighScore.GetComponent<TextMeshProUGUI>();
         health = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>().health;
+        restartBtn = GameObject.Find("RestartButton").GetComponent<Button>();
+        restartBtn.gameObject.SetActive(false);
+        quitBtn = GameObject.Find("QuitButton").GetComponent<Button>();
+        quitBtn.gameObject.SetActive(false);
+
     }
 
     private void Update()
@@ -42,6 +50,8 @@ public class GameManager : MonoBehaviour
             game = false;
             HighScore.SetActive(true);
             GameOver.SetActive(true);
+            restartBtn.gameObject.SetActive(true);
+            quitBtn.gameObject.SetActive(true);
         }
     }
 

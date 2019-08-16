@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/GameWorld.unity
+    guid: 1b03341d761c1514783be25c1c4e87d0
   m_configObjects: {}
